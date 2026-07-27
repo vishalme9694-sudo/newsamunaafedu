@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN WITH MUNAAF </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /*
+         * Theme: Telugu Golden Cyber
+         * Design Goal: Bridge traditional Telugu aesthetics (Gold/Blue)
+         * with modern educational tech.
+         */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+            overflow-x: hidden;
+            background-color: #040814;
+        }
+
+        /* 
+         * SVG Background Pattern
+         * Adds a subtle Telugu traditional motif. 
+         */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Simple Telugu-inspired mandala pattern */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><g fill="%23f59e0b" fill-opacity="0.05"><path d="M100 0 A 100 100 0 1 0 100 200 A 100 100 0 1 0 100 0 Z M 100 20 A 80 80 0 1 1 100 180 A 80 80 0 1 1 100 20 Z"/><circle cx="100" cy="100" r="10"/><path d="M100 50 L110 90 L100 100 L90 90 Z" /></g></svg>');
+            background-size: 150px 150px;
+            background-repeat: repeat;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 460px;
+            text-align: center;
+        }
+
+        /*
+         * Golden Cyber Card
+         */
+        .card {
+            position: relative;
+            overflow: hidden;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            
+            /* Clean Gold Neon Border */
+            border: 2px solid #f59e0b;
+            
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.7),
+                0 0 30px rgba(245, 158, 11, 0.1);
+            
+            transition: transform 0.3s ease;
+        }
+
+        /* 
+         * Golden Cyber Glow
+         */
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #f59e0b;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            top: -100px;
+            left: -100px;
+            z-index: 1;
+        }
+
+        /*
+         * Main Content Structure
+         */
+        .main-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f59e0b;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .verify {
+            color: #facc15;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .verify i {
+            color: #4ade80; /* Cyber Green */
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            margin-bottom: 20px;
+        }
+
+        /*
+         * Redesigned Stats Grid
+         */
+        .stats {
+            background: rgba(245, 158, 11, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 18px;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .stats-item {
+            color: #e2e8f0;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .stats-item i {
+            font-size: 20px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .stats-item .english {
+            display: block;
+            font-weight: 700;
+            color: #fcd34d;
+        }
+
+        .stats-item .telugu {
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .description {
+            margin-top: 15px;
+            margin-bottom: 22px;
+            line-height: 1.7;
+            font-size: 15px;
+            color: #cbd5e1;
+        }
+
+        /*
+         * Modern Gold Gradient Button
+         */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            
+            /* Warmer Gold Gradient */
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+            
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: 0.7s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /*
+         * Structured Benefits List
+         */
+        .benefits {
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .benefits div {
+            padding: 10px 0;
+            color: #e2e8f0;
+            font-size: 14.5px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .benefits div:last-child {
+            border-bottom: none;
+        }
+
+        .benefits .english-text {
+            color: #fcd34d;
+            font-weight: 700;
+        }
+
+        /*
+         * Timer
+         */
+        .timer {
+            margin-top: 22px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .timer span {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        /*
+         * Final Disclaimer
+         */
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 11px;
+            line-height: 1.8;
+            color: #94a3b8;
+            padding: 0 10px;
+        }
+
+        @media(max-width: 480px) {
+            .card { padding: 30px 20px; }
+            h2 { font-size: 22px; }
+            .profile { width: 100px; height: 100px; }
+            .btn { font-size: 15px; padding: 16px; }
+            .stats { padding: 12px; }
+            .stats-item { font-size: 12px; }
+        }
+
+    </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '934822528007345');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=934822528007345&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="card">
+        <div class="main-content">
+            <!-- Profile Image (Replace with your actual image URL) -->
+            <img src="mnf.webp" class="profile" alt="Kashis Profile">
+
+            <div class="verify">
+                <i class="fas fa-check-circle"></i> తెలుగు విద్యాపరమైన ట్రేడింగ్ కమ్యూనిటీ
+            </div>
+
+            <h2>📚 LEARN WITH MUNAAF  📚</h2>
+
+            <!-- Redesigned Stats Grid with Mixed Content -->
+            <div class="stats">
+                <div class="stats-item">
+                    <i class="fas fa-star" style="color:#fcd34d"></i>
+                    <span class="english">START-Friendly</span>
+                    <span class="telugu">అభ్యాసం</span>
+                </div>
+                <div class="stats-item">
+                    <i class="fas fa-users" style="color:#38bdf8"></i>
+                    <span class="english">Active Telugu</span>
+                    <span class="telugu">సమూహం</span>
+                </div>
+                <div class="stats-item">
+                    <i class="fas fa-fire" style="color:#f87171"></i>
+                    <span class="english">Daily</span>
+                    <span class="telugu">జ్ఞాన అప్‌డేట్లు</span>
+                </div>
+            </div>
+
+            <p class="description">
+                📚 Stock Market & Financial <span style="color:#cbd5e1">అవగాహన కమ్యూనిటీ</span>.
+            </p>
+
+            <a class="btn" id="telegramBtn" href="https://t.me/+T1WZoHr1WUhjMTNl" rel="noopener noreferrer">
+                <i class="fab fa-telegram font-awesome-icon"></i>
+                JOIN FREE TELEGRAM CHANNEL
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <!-- Structured Benefits List -->
+            <div class="benefits">
+                <div><i class="fas fa-chart-line" style="color: #4ade80;"></i> <span class="telugu-text">Daily</span> <span class="english-text">మార్కెట్ అప్‌డేట్లు</span></div>
+                <div><i class="fas fa-book-open" style="color: #f59e0b;"></i> <span class="telugu-text">Free</span> <span class="english-text">లెర్నింగ్ మెటీరియల్</span></div>
+                <div><i class="fas fa-bullseye" style="color: #f87171;"></i> <span class="telugu-text">తెలుగులో ఈజీగా స్టాక్ మార్కెట్</span></div>
+                <div><i class="fas fa-users" style="color: #38bdf8;"></i> <span class="telugu-text">Full తెలుగు కమ్యూనిటీ సపోర్ట్</span></div>
+                <div><i class="fas fa-lightbulb" style="color: #facc15;"></i> <span class="telugu-text">Market అవగాహన మరియు పరిజ్ఞానం</span></div>
+            </div>
+
+            <div class="timer">
+                ⏳ <span id="count">30</span> సెకన్లలో ఆటోమేటిక్‌గా రీడైరెక్ట్ అవుతుంది...
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Disclaimer (Text remains as refined in previous turn) -->
+    <div class="disclaimer">
+        <strong>నిరాకరణ (Disclaimer):</strong> ఈ ప్లాట్‌ఫారమ్ కేవలం విద్యాపరమైన మరియు సమాచార ప్రయోజనాల కోసం మాత్రమే. మేము ఎటువంటి పెట్టుబడి, ట్రేడింగ్ లేదా ఆర్థిక సలహాలను (financial advice) అందించము. ఏదైనా నిర్ణయం తీసుకునే ముందు మీ స్వంత పరిశోధన చేసుకోండి లేదా మీ ఆర్థిక సలహాదారుని సంప్రదించండి.
+    </div>
+</div>
+
+<script>
+    // Countdown Timer and Event Tracking Logic
+    let time = 30;
+    let counter = document.getElementById("count");
+
+    // Replace the URL with your actual Telegram invite link
+    const TELEGRAM_URL = "https://t.me/+T1WZoHr1WUhjMTNl"; 
+
+    // Handle button click with tracking
+    document.getElementById("telegramBtn").addEventListener("click", function(e){
+        e.preventDefault();
+        const telegramLink = this.href;
+
+        // Meta Pixel tracking: Subscribe event
+        if (typeof fbq !== 'undefined') {
+            fbq('track','Subscribe',{
+                content_name:'Telegram Community (Telugu)',
+                button_click:true
+            },{
+                eventID:'telegram_subscribe_'+Date.now()
+            });
+        } else {
+            console.warn("fbq is not defined. Tracking skipped.");
+        }
+
+        // Delay redirect slightly for tracking to fire
+        setTimeout(()=>{
+            window.location.href = telegramLink;
+        }, 1000);
+    });
+
+    // Automatic countdown and redirect
+    const countdown = setInterval(()=>{
+        time--;
+        if (counter) {
+            counter.innerText = time;
+        }
+
+        if (time <= 0) {
+            clearInterval(countdown);
+            window.location.href = TELEGRAM_URL;
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
